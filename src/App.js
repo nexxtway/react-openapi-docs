@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { RainbowFirebaseApp } from '@rainbow-modules/app';
+import { WhenAuthenticated } from '@rainbow-modules/auth';
+import { Switch, Route } from 'react-router-dom';
+import app from './firebase';
+import Home from './pages/Home';
+import Api from './pages/Api';
+
+
+const initialize = async () => {
+    try {
+        await app.auth().signInAnonymously();
+    } catch (err) {
+        // eslint-disable-next-line no-alert
+        alert(err.toString());
+    }
+};
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <RainbowFirebaseApp app={app} initialize={initialize}>
+            <WhenAuthenticated path="/">
+                <Switch>
+                    <Route path="/" exact component={Home} />
+                    <Route path="/api/:id" component={Api} />
+                </Switch>
+            </WhenAuthenticated>    
+        </RainbowFirebaseApp>
+    );
 }
 
 export default App;

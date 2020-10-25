@@ -1,14 +1,29 @@
 {
-  "name": "evertransit-next-openapi-react",
+  "name": "react-openapi-docs",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@rainbow-modules/app": "^0.5.0",
+    "@rainbow-modules/auth": "^0.5.0",
+    "@rainbow-modules/firebase-hooks": "^0.5.0",
+    "@rainbow-modules/hooks": "^0.5.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "firebase": "^7.24.0",
+    "pre-push": "^0.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "react-intl": "^5.8.6",
+    "react-rainbow-components": "^1.18.1",
+    "react-redux": "^7.2.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.3",
+    "redux": "^4.0.5",
+    "redux-form": "^8.3.6",
+    "speccy": "^0.11.0",
+    "styled-components": "^4.4.1",
+    "swagger-ui-react": "^3.35.1"
   },
   "scripts": {
     "start": "react-scripts start",
