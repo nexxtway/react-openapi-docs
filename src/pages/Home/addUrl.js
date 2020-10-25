@@ -1,7 +1,10 @@
 import app from '../../firebase';
 
 const addUrl = async (url) => {
-    const result = await app.firestore().collection('apis').where('url', '==', url).get();
+    const result = await app.firestore().collection('apis')
+        .where('url', '==', url)
+        .where('uid', '==', app.auth().currentUser.uid)
+        .get();
     if (result.size > 0) {
         return result.docs[0].id;
     }
